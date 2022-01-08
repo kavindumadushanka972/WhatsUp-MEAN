@@ -9,8 +9,8 @@
   <div class="form">
     <form action="" class="registration_form">
       <ion-label>Username</ion-label>
-      <input type="text" placeholder="Username">
-      <ion-button color="primary">Register</ion-button>
+      <input type="text" placeholder="Username" name="input" [(ngModel)]="username">
+      <ion-button color="primary" (click) = "submit()">Register</ion-button>
     </form>
   </div>
 

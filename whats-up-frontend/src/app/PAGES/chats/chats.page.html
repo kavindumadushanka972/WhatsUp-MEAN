@@ -7,7 +7,7 @@
 
       <div class="chats_name">
         <div><strong>{{c.name}}</strong></div>
-        <div><p>{{c.messages[c.messages.length-1].message}}</p></div>
+        <div><p>{{getLatestMessage(i)}}</p></div>
       </div>
 
       <!-- <div class="chat_time">{{c.updatedAt.toLocaleDateString("en-us")}}</div> -->

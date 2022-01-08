@@ -41,4 +41,10 @@ export class ChatsPage implements OnInit {
     return this.messages[this.messages.length-1].updatedAt //returns the last message sent timestamp
   }
 
+  getLatestMessage(index){
+    this.messages = this.chats[index].messages //store all the messages 
+    if(this.messages.length == 0) return '' //if there are no messaged 
+    return this.messages[this.messages.length-1].message
+  }
+
 }

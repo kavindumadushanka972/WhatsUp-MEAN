@@ -15,4 +15,10 @@ export class ApiService {
     return this.http.get(this.serverUrl + '/chats')
   }
 
+  postChats(chat): Observable<any>{
+    return this.http.post(this.serverUrl + '/chats', chat)
+  }
+
+  
+
 }
