@@ -11,7 +11,7 @@
         </ion-avatar>
       </div>
 
-      <ion-title>Ionic Group</ion-title>
+      <ion-title>{{data.name}}</ion-title>
 
     </div>
   </ion-toolbar>
@@ -19,14 +19,11 @@
 
 <ion-content>
   <div class="message_content">
-    <div class="message_chats">
-      hi guys
-      <span class="message_time_stamp">today</span>
-    </div>
-
-    <div class="message_chats message_receiver">
-      am doing great
-      <span class="message_time_stamp">today</span>
+    <div *ngFor="let c of data.messages">
+      <div class="message_chats">
+        {{c.message}}
+        <span class="message_time_stamp">{{c.createdAt | date:'HH:mm'}}</span>
+      </div>
     </div>
   </div>
 </ion-content>

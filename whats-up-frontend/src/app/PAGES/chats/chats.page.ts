@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ApiService } from 'src/app/SERVICES/api.service';
+import { NavigationExtras } from '@angular/router'
 
 @Component({
   selector: 'app-chats',
@@ -18,9 +19,13 @@ export class ChatsPage implements OnInit {
     this.getAllChats()
   }
 
-  selectChat(){
-    console.log("selected")
-    this.navCtl.navigateForward('messages')
+  selectChat(c){
+    let navigationExtra: NavigationExtras = {
+      state:{
+        chat: c //passing chat when navigating
+      }
+    }
+    this.navCtl.navigateForward('messages', navigationExtra)
   }
 
   getAllChats(){

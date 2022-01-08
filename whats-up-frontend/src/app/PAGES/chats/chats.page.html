@@ -1,6 +1,6 @@
 <ion-content>
   <div *ngFor="let c of chats; index as i">
-    <div class="chats" (click)="selectChat()">
+    <div class="chats" (click)="selectChat(c)">
       <ion-avatar class="chats_avatar">
         <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="" class="chats_profile_pic">
       </ion-avatar>
