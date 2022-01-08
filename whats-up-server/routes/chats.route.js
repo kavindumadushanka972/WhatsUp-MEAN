@@ -3,7 +3,7 @@ var router = express.Router()
 let Chat = require('../models/chats.model')
 
 router.get('/', (req, res) => {
-    Chat.find({})
+    Chat.find({}).sort({updatedAt: -1})
     .populate('messages') // showing all the messages in response
     .exec((err, resp)=> {
         if(err) res.status(500).send(err)

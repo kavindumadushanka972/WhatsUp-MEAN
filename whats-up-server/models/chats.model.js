@@ -10,6 +10,8 @@ let chat = new Schema({
             ref: 'messages' //schema related to messages in mongodb
         }
     ]
+},{
+    timestamps: true
 })
 
 module.exports = mongoose.model('chats', chat)
