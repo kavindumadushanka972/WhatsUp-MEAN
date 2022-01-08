@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Whats Up",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

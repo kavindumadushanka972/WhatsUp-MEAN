@@ -1,0 +1,8 @@
+{
+  "name": "Whats Up",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "c2ad408b"
+}

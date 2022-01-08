@@ -1,0 +1,45 @@
+.top_menu{
+    display: flex; //make all horizontal
+}
+
+.top_menu_text{
+    flex: 1; //get all the space as possible
+}
+
+.top_menu_tabs{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-around;
+    font-size: 12px;
+    margin-bottom: 2px;
+
+    div{
+        span{
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            padding: 1px;
+
+            background: #fff;
+            color: #075E54;
+            // color: red;
+            text-align: center;
+
+            font: 9px Arial, sans-serif;
+        }
+    }
+
+    .top_menu_camera{
+        margin-left: 8px;
+        font-size: 20px;
+        color: grey;
+        justify-content: space-around;
+    }
+
+    .top_menu_tabs_chats{
+        display: flex;
+        flex: 1;
+        justify-content: space-around;
+        margin-bottom: 2px;
+    }
+}
