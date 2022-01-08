@@ -32,7 +32,7 @@ export class ChatsPage implements OnInit {
     this.api.getChats()
     .subscribe(resp => {
       this.chats = resp
-    console.log(this.chats)})
+    })
   }
 
   getLastMessageDate(index){
