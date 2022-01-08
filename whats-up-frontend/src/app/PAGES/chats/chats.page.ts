@@ -9,6 +9,9 @@ import { ApiService } from 'src/app/SERVICES/api.service';
 })
 export class ChatsPage implements OnInit {
 
+  chats: any [] = [];
+  messages: any [] = [];
+
   constructor(private navCtl: NavController, private api: ApiService) { }
 
   ngOnInit() {
@@ -22,7 +25,15 @@ export class ChatsPage implements OnInit {
 
   getAllChats(){
     this.api.getChats()
-    .subscribe(resp => console.log('response', resp))
+    .subscribe(resp => {
+      this.chats = resp
+    console.log(this.chats)})
+  }
+
+  getLastMessageDate(index){
+    this.messages = this.chats[index].messages //store all the messages 
+    if(this.messages.length == 0) return ''
+    return this.messages[this.messages.length-1].updatedAt //returns the last message sent timestamp
   }
 
 }
