@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors'); //without cors, server is rejecting requests from outside(from frontend)
 const mongoose = require('mongoose');
 
 
@@ -13,6 +14,7 @@ let messageRouter = require('./routes/messages.route');
 
 
 var app = express();
+app.use(cors())
 
 require('dotenv').config()
 
