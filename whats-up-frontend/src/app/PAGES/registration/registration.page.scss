@@ -1,0 +1,28 @@
+.form{
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.registration_form{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 8px;
+    align-items: center;
+    height: 100%;
+
+    input{
+        margin: 8px;
+        padding: 10px;
+        border: lightgray solid 1px;
+        border-radius: 20px;
+        background-color: #f5f5f5;
+    }
+
+    input:focus{
+        outline: none;
+    }
+}
