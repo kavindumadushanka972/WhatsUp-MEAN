@@ -19,6 +19,10 @@ export class ApiService {
     return this.http.post(this.serverUrl + '/chats', chat)
   }
 
+  postResource(route: string, item): Observable<any>{
+    return this.http.post(this.serverUrl + route, item)
+  }
+
   saveUser(user){
     localStorage.setItem('user', JSON.stringify(user))
   }

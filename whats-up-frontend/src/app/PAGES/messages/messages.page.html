@@ -32,9 +32,9 @@
   <ion-toolbar>
     <div class="chat_input">
       <ion-icon class="chat_icon" name="happy-outline"></ion-icon>
-      <input type="text">
+      <input type="text" name="chat" [(ngModel)]="message">
       <div class="chat_icon">
-        <ion-icon name="send"></ion-icon>
+        <ion-icon name="send" (click)="postMessage()"></ion-icon>
       </div>
     </div>
   </ion-toolbar>
