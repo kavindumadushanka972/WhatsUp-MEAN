@@ -19,6 +19,20 @@ export class ApiService {
     return this.http.post(this.serverUrl + '/chats', chat)
   }
 
-  
+  saveUser(user){
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
+  getUser(){
+    return localStorage.getItem('user')
+  }
+
+  isRegisterd(): boolean{
+    return localStorage.getItem('user') ? true : false
+  }
+
+  userLogout(){
+    return localStorage.removeItem('user')
+  }
 
 }

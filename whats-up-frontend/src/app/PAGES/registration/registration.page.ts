@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { ApiService } from 'src/app/SERVICES/api.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { ApiService } from 'src/app/SERVICES/api.service';
 export class RegistrationPage implements OnInit {
   username: string = ''
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private navCtrl: NavController) { }
 
   ngOnInit() {
   }
@@ -21,7 +22,8 @@ export class RegistrationPage implements OnInit {
 
     this.api.postChats(obj)
     .subscribe((resp) => {
-      console.log('response', resp)
+      this.api.saveUser(resp);
+      this.navCtrl.navigateForward('home')
     })
   }
 
