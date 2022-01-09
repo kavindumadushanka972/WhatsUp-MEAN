@@ -32,11 +32,14 @@ export class MessagesPage implements OnInit {
       chat_id: this.data._id
     }
 
-    this.api.postResource('/messages', obj)
-    .subscribe(resp => {
-      console.log(resp);
-      this.message = ''
-    })
+    if(this.message != ''){
+      this.api.postResource('/messages', obj)
+      .subscribe(resp => {
+        console.log(resp);
+        this.message = ''
+      })
+    }
+    
   }
 
 }
