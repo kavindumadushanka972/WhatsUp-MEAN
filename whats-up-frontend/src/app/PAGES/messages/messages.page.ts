@@ -46,4 +46,8 @@ export class MessagesPage implements OnInit {
     
   }
 
+  unsubscribe(){
+    this.pusher.unsubscribe('message')
+  }
+
 }

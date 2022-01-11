@@ -25,4 +25,8 @@ export class PusherService {
     })
   }
 
+  unsubscribe(channelName){
+    this.pusher.unsubscribe(channelName)
+  }
+
 }

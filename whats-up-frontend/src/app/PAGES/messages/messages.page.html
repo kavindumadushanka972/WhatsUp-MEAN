@@ -2,7 +2,7 @@
   <ion-toolbar>
     <div class="message_title" slot="start">
       <ion-buttons class="message_back_button">
-        <ion-back-button defaultHref="home"></ion-back-button>
+        <ion-back-button defaultHref="home" (click)="unsubscribe()"></ion-back-button>
       </ion-buttons>
 
       <div class="messages_profile_pic">
@@ -20,7 +20,7 @@
 <ion-content>
   <div class="message_content">
     <div *ngFor="let c of data.messages">
-      <div class="message_chats">
+      <div class="message_chats" [ngClass]="{'message_receiver': data._id == c.from}">
         {{c.message}}
         <span class="message_time_stamp">{{c.createdAt | date:'HH:mm'}}</span>
       </div>
