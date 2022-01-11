@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/SERVICES/api.service';
+import { PusherService } from 'src/app/SERVICES/pusher.service';
 
 @Component({
   selector: 'app-messages',
@@ -12,7 +13,7 @@ export class MessagesPage implements OnInit {
   data: any;
   message: string = ''
 
-  constructor(private route: ActivatedRoute, private router: Router, private api: ApiService) {
+  constructor(private route: ActivatedRoute, private router: Router, private api: ApiService, private pusher: PusherService) {
     this.route.queryParams.subscribe(params => {
       if(this.router.getCurrentNavigation().extras.state){
         this.data = this.router.getCurrentNavigation().extras.state.chat;
@@ -21,6 +22,9 @@ export class MessagesPage implements OnInit {
   }
 
   ngOnInit() {
+    this.pusher.subscribeToChannel('message', ['inserted'], (data)=> {
+      this.data.messages.push(data)
+    })
   }
 
   postMessage(){

@@ -11,6 +11,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 let chatRouter = require('./routes/chats.route');
 let messageRouter = require('./routes/messages.route');
+const Pusher = require('pusher');
 
 
 var app = express();
@@ -38,9 +39,30 @@ mongoose.connect(connectionUrl, {
   console.log("error", error)
 })
 
+var pusher = new Pusher({
+  appId: "1329651",
+  key: "05c45d947104d2bc7d37",
+  secret: "42098cdefa23c4f1ab62",
+  cluster: "ap2",
+  useTLS: true
+})
+
 const db = mongoose.connection;
 db.once('open', ()=> {
   console.log('db connected')
+  const messageCollection = db.collection('messages');
+  const changeStream = messageCollection.watch()
+  changeStream.on('change', (change)=>{
+    // console.log("what is in change", change)
+    if(change.operationType == 'insert'){
+      const messageDetails = change.fullDocument;
+      pusher.trigger('message', 'inserted', {
+        message: messageDetails.message,
+        chat_id: messageDetails.chat_id,
+        from: messageDetails.from
+      })
+    }
+  })
 })
 
 //Routing
