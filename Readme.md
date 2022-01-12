@@ -16,6 +16,6 @@
 ### Server runs on http://localhost:3000 and App runs on http://localhost:8100
 
 ## This is it!
-<img src="images/1.png">
+<img src="/images/1.png">
 <img src="images/2.png">
 <img src="images/3.png">
